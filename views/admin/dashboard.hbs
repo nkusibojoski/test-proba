@@ -1,0 +1,64 @@
+<div class="container">
+    <div class="row">
+        {{#if alerts.success}}
+        <div class="col-lg-12  col-md-12">
+            <div class="alert alert-success alert-dismissible text-center">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <h4 class="text-center">
+                    {{ alerts.success }}
+            </div>
+        </div>
+        {{/if}}
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-lg-6 col-sm-12">
+            <a href="/post/create">
+                <button class="btn btn-success">Add new post</button>
+            </a>
+            <h3 class="tex-center">All posts</h3>
+            <table class="table table-hover">
+                <thead>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Category</th>
+                </thead>
+                <tbody>
+                    {{#each posts}}
+                    <tr>
+                        <td>{{this.id}}</td>
+                        <td>{{this.title}}</td>
+                        <td>{{this.Category.name}}</td>
+                    </tr>
+                    {{else}} Posts not found {{/each}}
+
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-md-6 col-lg-6 col-sm-12">
+            <a href="/category/create">
+                <button class="btn btn-success">Add new category</button>
+            </a>
+            <h3 class="tex-center">All Category</h3>
+            <table class="table table-hover">
+                <thead>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>All posts in category</th>
+                </thead>
+                <tbody>
+                    {{#each categories}}
+                    <tr>
+                        <td>{{this.id}}</td>
+                        <td>{{this.name}}</td>
+                        <td>
+                            <a href="/category/{{this.id}}">View</a>
+                        </td>
+                    </tr>
+                    {{else}} Categories not found {{/each}}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>

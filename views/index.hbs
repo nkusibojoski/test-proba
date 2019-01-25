@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+            {{#each posts}}
+            <div class="post-preview">
+                <a href="">
+                    <h2 class="post-title">
+                        {{this.title}}
+                    </h2>
+                    <h3 class="post-subtitle">
+                        {{this.content}}
+                    </h3>
+                </a>
+                <p class="post-meta">Created in category
+                    <a href="/category/{{this.Category.id}}">{{this.Category.name}}</a>
+                    on {{this.createdAt}}</p>
+            </div>
+            <hr> {{else}}
+            <p class="empty">No content</p>
+            {{/each}}
+        </div>
+    </div>
+</div>
